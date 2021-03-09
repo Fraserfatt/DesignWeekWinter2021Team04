@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class InteractController : MonoBehaviour
 {
     [SerializeField]
-    float interactionDistance;
+    float interactionDistance = 5;
 
     [SerializeField]
     GameObject interactTextPrompt;
@@ -40,24 +40,27 @@ public class InteractController : MonoBehaviour
         //}
         #endregion
 
-        //Current cast to check for interaction.  If true, collects current object and highlights via UI
-        if (Physics.SphereCast(cameraComponent.transform.position, 0.5f, cameraComponent.transform.forward, out hit, interactionDistance, LayerMask.GetMask("Interactable")))
+        if (interactTextPrompt != null)
         {
-            interactTextPrompt.SetActive(true);
-            //Debug.Log("Highlighting " + hit.collider.name + " at time: " + Time.time);
-            interactTextPrompt.transform.position = cameraComponent.WorldToScreenPoint(hit.point);
-            currentObject = hit.transform.gameObject;
-        }
-        else
-        {
-            interactTextPrompt.SetActive(false);
-            //Debug.Log("Currently not highlighting anything at time: " + Time.time);
-            currentObject = null;
-        }
+            //Current cast to check for interaction.  If true, collects current object and highlights via UI
+            if (Physics.SphereCast(cameraComponent.transform.position, 0.5f, cameraComponent.transform.forward, out hit, interactionDistance, LayerMask.GetMask("Interactable")))
+            {
+                interactTextPrompt.SetActive(true);
+                //Debug.Log("Highlighting " + hit.collider.name + " at time: " + Time.time);
+                interactTextPrompt.transform.position = cameraComponent.WorldToScreenPoint(hit.point);
+                currentObject = hit.transform.gameObject;
+            }
+            else
+            {
+                interactTextPrompt.SetActive(false);
+                //Debug.Log("Currently not highlighting anything at time: " + Time.time);
+                currentObject = null;
+            }
 
-        if (currentObject != null && Input.GetKeyDown(KeyCode.E))
-        {
-            currentObject.GetComponent<IInteractable>().Interact();
+            if (currentObject != null && Input.GetKeyDown(KeyCode.E))
+            {
+                currentObject.GetComponent<IInteractable>().Interact();
+            }
         }
     }
 }
