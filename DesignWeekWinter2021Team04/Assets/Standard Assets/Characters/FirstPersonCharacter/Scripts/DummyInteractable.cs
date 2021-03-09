@@ -10,6 +10,8 @@ public class DummyInteractable : MonoBehaviour, IInteractable
     {
         //Debug.Log("You interacted with me! at: " + Time.time);
         Inventory.collectEvent.Invoke(gameObject);
+        GetComponentInChildren<ParticleSystem>().Play();
+        transform.GetChild(0).parent = null;
         Destroy(gameObject);
     }
 
