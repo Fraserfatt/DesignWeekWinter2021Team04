@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class InteractController : MonoBehaviour
 {
+
+
     [SerializeField]
     float interactionDistance = 5;
 
