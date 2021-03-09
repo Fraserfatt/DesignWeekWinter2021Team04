@@ -50,6 +50,7 @@ public class InteractController : MonoBehaviour
                 interactTextPrompt.SetActive(true);
                 //Debug.Log("Highlighting " + hit.collider.name + " at time: " + Time.time);
                 interactTextPrompt.transform.position = cameraComponent.WorldToScreenPoint(hit.point);
+
                 currentObject = hit.transform.gameObject;
             }
             else
