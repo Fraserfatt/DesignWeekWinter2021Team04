@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class InteractController : MonoBehaviour
 {
-
+    [SerializeField]
+    public MenuClassifier pauseMenu;
 
     [SerializeField]
     float interactionDistance = 5;
@@ -67,6 +69,13 @@ public class InteractController : MonoBehaviour
             {
                 currentObject.GetComponent<IInteractable>().Interact(hitPosition);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //Pause the game
+            MenuManager.Instance.showMenu(pauseMenu);
+            GetComponent<RigidbodyFirstPersonController>().enabled = false;
         }
     }
 }

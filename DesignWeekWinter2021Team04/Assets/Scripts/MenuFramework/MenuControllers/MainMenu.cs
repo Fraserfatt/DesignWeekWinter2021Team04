@@ -13,6 +13,5 @@ public class MainMenu : Menu
         MenuManager.Instance.showMenu(HUDMenu);
         MenuManager.Instance.hideMenu(menuClassifier);
         SceneLoader.Instance.LoadScene(LoadLevel);
-        SceneLoader.Instance.UnloadScene(UIScene);
     }
 }
