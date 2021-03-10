@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fish
+  - Bucket
+  - Berries
+  - Wood
+  - Herbs
+  - Dummy Interactable
+  - Ground
   layers:
   - Default
   - TransparentFX

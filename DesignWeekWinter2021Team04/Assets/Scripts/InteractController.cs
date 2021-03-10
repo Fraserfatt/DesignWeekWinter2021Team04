@@ -53,12 +53,22 @@ public class InteractController : MonoBehaviour
             //Current cast to check for interaction.  If true, collects current object and highlights via UI
             if (Physics.SphereCast(cameraComponent.transform.position, 0.5f, cameraComponent.transform.forward, out hit, interactionDistance, LayerMask.GetMask("Interactable")))
             {
-                interactTextPrompt.SetActive(true);
-                //Debug.Log("Highlighting " + hit.collider.name + " at time: " + Time.time);
-                interactTextPrompt.transform.position = cameraComponent.WorldToScreenPoint(hit.point);
+                if (hit.transform.tag != "Ground")
+                {
+                    interactTextPrompt.SetActive(true);
+                    //Debug.Log("Highlighting " + hit.collider.name + " at time: " + Time.time);
+                    interactTextPrompt.transform.position = cameraComponent.WorldToScreenPoint(hit.point);
 
-                currentObject = hit.transform.gameObject;
-                hitPosition = hit.point;
+                    currentObject = hit.transform.gameObject;
+                    hitPosition = hit.point;
+                }
+                else
+                {
+                    interactTextPrompt.SetActive(false);
+                    //Debug.Log("Currently not highlighting anything at time: " + Time.time);
+                    currentObject = null;
+                    hitPosition = Vector3.zero;
+                }
             }
             else
             {
