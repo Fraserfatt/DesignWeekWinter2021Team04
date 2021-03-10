@@ -6,6 +6,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class InteractController : MonoBehaviour
 {
+    private bool pauseFlag = false;
+
     [SerializeField]
     public MenuClassifier pauseMenu;
 
@@ -22,6 +24,7 @@ public class InteractController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pauseFlag = false;
         cameraComponent = GetComponentInChildren<Camera>();
     }
 
@@ -73,9 +76,20 @@ public class InteractController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //Pause the game
-            MenuManager.Instance.showMenu(pauseMenu);
-            GetComponent<RigidbodyFirstPersonController>().enabled = false;
+            if(pauseFlag == false)
+            {
+                //Pause the game
+                MenuManager.Instance.showMenu(pauseMenu);
+                GetComponent<RigidbodyFirstPersonController>().enabled = false;
+                pauseFlag = true;
+            }
+            else
+            {
+                //unpause the game
+                MenuManager.Instance.hideMenu(pauseMenu);
+                GetComponent<RigidbodyFirstPersonController>().enabled = true;
+                pauseFlag = false;
+            }
         }
     }
 }
