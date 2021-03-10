@@ -40,12 +40,16 @@ public class Inventory : MonoBehaviour
                 inventoryObjects[1].enabled = true;
                 break;
 
-            case "Fishing Rod":
+            case "Berries":
                 inventoryObjects[2].enabled = true;
                 break;
 
             case "Wood":
                 inventoryObjects[3].enabled = true;
+                break;
+
+            case "Herbs":
+                inventoryObjects[4].enabled = true;
                 break;
 
             case "Dummy Interactable":
