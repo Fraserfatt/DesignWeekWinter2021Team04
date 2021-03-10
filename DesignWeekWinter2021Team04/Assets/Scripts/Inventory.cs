@@ -14,17 +14,30 @@ public class Inventory : MonoBehaviour
 
     Image[] inventoryObjects;
 
+    bool[] objectCheck;
     // Start is called before the first frame update
     void Start()
     {
         inventoryObjects = GetComponentsInChildren<Image>();
         collectEvent.AddListener(EnableItem);
+        objectCheck = new bool[inventoryObjects.Length];
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //check button
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (CompleteCheck())
+            {
+                Debug.Log("YOU ARE COMPLETE! at: " + Time.time);
+            }
+            else
+            {
+                Debug.Log("YOU ARE NOT COMPLETE! at: " + Time.time);
+            }
+        }
     }
 
     void EnableItem(GameObject item)
@@ -34,31 +47,51 @@ public class Inventory : MonoBehaviour
         {
             case "Fish":
                 inventoryObjects[0].enabled = true;
+                objectCheck[0] = true;
                 break;
 
             case "Bucket":
                 inventoryObjects[1].enabled = true;
+                objectCheck[1] = true;
                 break;
 
             case "Berries":
                 inventoryObjects[2].enabled = true;
+                objectCheck[2] = true;
                 break;
 
             case "Wood":
                 inventoryObjects[3].enabled = true;
+                objectCheck[3] = true;
                 break;
 
             case "Herbs":
                 inventoryObjects[4].enabled = true;
+                objectCheck[4] = true;
                 break;
 
             case "Dummy Interactable":
                 inventoryObjects[0].enabled = true;
+                objectCheck[0] = true;
                 break;
 
             default:
                 break;
                 
         }
+    }
+
+    public bool CompleteCheck()
+    {
+        for (int i = 0; i<objectCheck.Length; i++)
+        {
+            if (!objectCheck[i])
+            {
+                //Nope!
+                return false;
+            }
+        }
+        //else, if you don't return, it must all be done
+        return true;
     }
 }
