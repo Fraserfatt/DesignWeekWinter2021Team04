@@ -29,8 +29,8 @@ public class Inventory : MonoBehaviour
 
     void EnableItem(GameObject item)
     {
-        Debug.Log(item.name);
-        switch (item.name)
+        Debug.Log(item.tag);
+        switch (item.tag)
         {
             case "Fish":
                 inventoryObjects[0].enabled = true;

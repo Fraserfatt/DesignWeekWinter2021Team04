@@ -1295,7 +1295,7 @@ GameObject:
   - component: {fileID: 2087550628451876359}
   - component: {fileID: 2087550628451876358}
   m_Layer: 5
-  m_Name: Fishing Rod
+  m_Name: Berries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

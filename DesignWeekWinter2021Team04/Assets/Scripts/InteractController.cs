@@ -16,6 +16,7 @@ public class InteractController : MonoBehaviour
     Camera cameraComponent;
 
     GameObject currentObject;
+    Vector3 hitPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,17 +53,19 @@ public class InteractController : MonoBehaviour
                 interactTextPrompt.transform.position = cameraComponent.WorldToScreenPoint(hit.point);
 
                 currentObject = hit.transform.gameObject;
+                hitPosition = hit.point;
             }
             else
             {
                 interactTextPrompt.SetActive(false);
                 //Debug.Log("Currently not highlighting anything at time: " + Time.time);
                 currentObject = null;
+                hitPosition = Vector3.zero;
             }
 
             if (currentObject != null && Input.GetKeyDown(KeyCode.E))
             {
-                currentObject.GetComponent<IInteractable>().Interact();
+                currentObject.GetComponent<IInteractable>().Interact(hitPosition);
             }
         }
     }
