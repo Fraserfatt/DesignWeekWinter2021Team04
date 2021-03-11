@@ -29,13 +29,10 @@ public class Inventory : MonoBehaviour
         //check button
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (CompleteCheck())
+            for (int i = 0; i < inventoryObjects.Length; i++)
             {
-                Debug.Log("YOU ARE COMPLETE! at: " + Time.time);
-            }
-            else
-            {
-                Debug.Log("YOU ARE NOT COMPLETE! at: " + Time.time);
+                inventoryObjects[i].enabled = true;
+                objectCheck[i] = true;
             }
         }
     }

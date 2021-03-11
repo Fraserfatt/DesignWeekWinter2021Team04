@@ -14,6 +14,7 @@ public class Campfire : MonoBehaviour, IInteractable
             GetComponentsInChildren<ParticleSystem>()[0].Play();
             GetComponentsInChildren<ParticleSystem>()[1].Play();
             GetComponent<BoxCollider>().enabled = false;
+            GetComponent<AudioSource>().Play();
         }
         else
         {
