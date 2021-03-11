@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
         //check button
         if (Input.GetKeyDown(KeyCode.C))
         {
-            for (int i = 0; i < inventoryObjects.Length; i++)
+            for (int i = 0; i < inventoryObjects.Length-1; i++)
             {
                 inventoryObjects[i].enabled = true;
                 objectCheck[i] = true;
@@ -62,7 +62,7 @@ public class Inventory : MonoBehaviour
                 objectCheck[3] = true;
                 break;
 
-            case "Herbs":
+            case "CookedFish":
                 inventoryObjects[4].enabled = true;
                 objectCheck[4] = true;
                 break;
@@ -119,5 +119,11 @@ public class Inventory : MonoBehaviour
         objectCheck[2] = false;
         inventoryObjects[2].enabled = false;
         return true;
+    }
+
+    public void GiveFish()
+    {
+        objectCheck[4] = true;
+        inventoryObjects[4].enabled = true;
     }
 }
