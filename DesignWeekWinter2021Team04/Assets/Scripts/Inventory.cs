@@ -71,8 +71,8 @@ public class Inventory : MonoBehaviour
                 break;
 
             case "Dummy Interactable":
-                inventoryObjects[0].enabled = true;
-                objectCheck[0] = true;
+                inventoryObjects[4].enabled = true;
+                objectCheck[4] = true;
                 break;
 
             default:
