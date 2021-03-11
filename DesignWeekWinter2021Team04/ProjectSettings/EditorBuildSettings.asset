@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI.unity
     guid: 849ebb449fcc6ff468402c263f6dfa35
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/LakScene.unity
-    guid: 97bbe2cb02423af4c80fd1eaa7f09da0
+    guid: 8e3ce764890820a48ba48a0436337bf8
   m_configObjects: {}

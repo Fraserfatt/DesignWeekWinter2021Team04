@@ -21,6 +21,7 @@ public class InteractController : MonoBehaviour
 
     GameObject currentObject;
     Vector3 hitPosition;
+
     // Start is called before the first frame update
     void Start()
     {
