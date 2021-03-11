@@ -94,4 +94,33 @@ public class Inventory : MonoBehaviour
         //else, if you don't return, it must all be done
         return true;
     }
+
+    public bool FireCheck()
+    {
+        if (!(objectCheck[0] && objectCheck[1] && objectCheck[3]))
+        {
+            return false;
+        }
+        objectCheck[0] = false;
+        inventoryObjects[0].enabled = false;
+
+        objectCheck[1] = false;
+        inventoryObjects[1].enabled = false;
+
+        objectCheck[3] = false;
+        inventoryObjects[3].enabled = false;
+
+        return true;
+    }
+
+    public bool BerryCheck()
+    {
+        if (!objectCheck[2])
+        {
+            return false;
+        }
+        objectCheck[2] = false;
+        inventoryObjects[2].enabled = false;
+        return true;
+    }
 }

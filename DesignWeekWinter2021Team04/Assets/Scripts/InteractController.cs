@@ -81,7 +81,7 @@ public class InteractController : MonoBehaviour
 
             if (currentObject != null && Input.GetKeyDown(KeyCode.E))
             {
-                currentObject.GetComponent<IInteractable>().Interact(hitPosition);
+                currentObject.GetComponent<IInteractable>().Interact(gameObject, hitPosition);
             }
         }
 

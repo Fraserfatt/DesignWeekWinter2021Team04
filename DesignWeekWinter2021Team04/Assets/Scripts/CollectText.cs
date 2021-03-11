@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInteractable
+public class CollectText : Singleton<CollectText>
 {
-    void Interact(GameObject player, Vector3 hitPoint);
+
 }
